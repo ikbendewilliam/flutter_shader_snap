@@ -1,5 +1,8 @@
 # flutter_shader_snap
 
+[![pub package](https://img.shields.io/pub/v/flutter_shader_snap.svg)](https://pub.dartlang.org/packages/flutter_shader_snap)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
 Create the Thanos snap effect with a simple widget.
 
 ## Getting Started
