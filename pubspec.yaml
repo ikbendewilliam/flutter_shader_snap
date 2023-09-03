@@ -1,0 +1,13 @@
+name: flutter_shader_snap
+description: A plugin to create the snap effect on any widget.
+version: 0.0.1+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_shaders: ^0.1.0
+
+flutter:
