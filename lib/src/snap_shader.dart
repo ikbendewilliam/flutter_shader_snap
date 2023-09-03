@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shaders/flutter_shaders.dart';
 
+/// A widget that applies a snap effect to its child.
 class SnapShader extends StatelessWidget {
+  /// A controller that can be used to control the snap effect
   final AnimationController controller;
+
+  /// The widget to apply the snap effect to
   final Widget child;
 
   const SnapShader({

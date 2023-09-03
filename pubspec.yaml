@@ -1,6 +1,7 @@
 name: flutter_shader_snap
-description: A plugin to create the snap effect on any widget.
-version: 0.0.1+1
+description: A plugin to create the snap effect on any widget. Just add an animationController and a SnapShader with any widget to add the snap effect.
+version: 0.0.1
+homepage: https://github.com/ikbendewilliam/flutter_shader_snap
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
