@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   );
   int _counter = 0;
   int _index = 0;
+  var _useSplitShader = true;
 
   void _incrementCounter() {
     setState(() {
@@ -80,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 const Spacer(),
                 SnapShader(
                   controller: _controller,
+                  snapShaderType: _useSplitShader ? SnapShaderType.split : SnapShaderType.smoke,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -98,8 +100,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         height: 100,
                         color: Colors.primaries[_index % Colors.primaries.length],
                       ),
+                      const SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Switch(
+                            value: _useSplitShader,
+                            onChanged: (value) => setState(() => _useSplitShader = value),
+                          ),
+                          const Text('Use split (on) or smoke (off) shader'),
+                        ],
+                      ),
                     ],
                   ),
+                ),
+                Slider(
+                  value: _controller.value,
+                  onChanged: (value) => _controller.value = value,
                 ),
                 const Spacer(),
                 ElevatedButton(

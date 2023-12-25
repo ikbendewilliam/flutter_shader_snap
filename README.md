@@ -5,6 +5,13 @@
 
 Create the Thanos snap effect with a simple widget.
 
+| Split (default) | Smoke |
+| -------- | ------- |
+| <img src="https://github.com/ikbendewilliam/flutter_shader_snap/blob/main/example/screenshots/split.gif?raw=true" alt="customcropcircle" height="320"/> | <img src="https://github.com/ikbendewilliam/flutter_shader_snap/blob/main/example/screenshots/smoke.gif?raw=true" alt="customcropsquare" height="320"/> |
+
+ 
+
+
 ## Getting Started
 
 Add the dependency to your `pubspec.yaml` file:
@@ -21,7 +28,8 @@ Add the shader to your `pubspec.yaml` file:
 ```yaml
 flutter:
   shaders:
-    - packages/flutter_shader_snap/shaders/snap_effect_shader.glsl
+    - packages/flutter_shader_snap/shaders/split_snap_effect_shader.glsl # add if you use SnapShaderType.split
+    - packages/flutter_shader_snap/shaders/smoke_snap_effect_shader.glsl # add if you use SnapShaderType.smoke
 ```
 
 Create an `AnimationController` and just add the SnapShader widget:
@@ -37,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return SnapShader(
         controller: _controller,
+        snapShaderType: SnapShaderType.split, // (optional) SnapShaderType.split or SnapShaderType.smoke
         child: Any Widget...
     );
   }

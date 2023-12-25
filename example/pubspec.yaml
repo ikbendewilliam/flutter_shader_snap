@@ -21,4 +21,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   shaders:
-    - packages/flutter_shader_snap/shaders/snap_effect_shader.glsl
+    - packages/flutter_shader_snap/shaders/split_snap_effect_shader.glsl
+    - packages/flutter_shader_snap/shaders/smoke_snap_effect_shader.glsl
