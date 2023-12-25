@@ -1,4 +1,4 @@
-## [0.0.2] - 2023-12-25
+## [0.0.2] - 2023-12-26
 
 - Added `split` shader and changed the previous shader to `smoke` shader
 
