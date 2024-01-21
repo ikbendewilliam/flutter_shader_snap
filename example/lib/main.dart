@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   );
   int _counter = 0;
   int _index = 0;
-  var _useSplitShader = true;
+  var _snapShaderType = SnapShaderType.split;
 
   void _incrementCounter() {
     setState(() {
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 const Spacer(),
                 SnapShader(
                   controller: _controller,
-                  snapShaderType: _useSplitShader ? SnapShaderType.split : SnapShaderType.smoke,
+                  snapShaderType: _snapShaderType,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -101,16 +101,37 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         color: Colors.primaries[_index % Colors.primaries.length],
                       ),
                       const SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Switch(
-                            value: _useSplitShader,
-                            onChanged: (value) => setState(() => _useSplitShader = value),
+                      const Text('Use split (on) or smoke (off) shader'),
+                      ...SnapShaderType.values.map(
+                        (e) => GestureDetector(
+                          onTap: () => setState(() => _snapShaderType = e),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Radio(
+                                  groupValue: _snapShaderType,
+                                  value: e,
+                                  onChanged: (value) => setState(() => _snapShaderType = e),
+                                ),
+                                Text(e.toString().split('.').last),
+                              ],
+                            ),
                           ),
-                          const Text('Use split (on) or smoke (off) shader'),
-                        ],
+                        ),
                       ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          margin: const EdgeInsets.only(right: 8, bottom: 50),
+                          decoration: BoxDecoration(
+                            color: Colors.primaries[(_index + 5) % Colors.primaries.length],
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),

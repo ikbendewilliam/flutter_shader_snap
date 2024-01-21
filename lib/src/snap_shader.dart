@@ -32,7 +32,7 @@ class SnapShader extends StatelessWidget {
                   shader
                     ..setFloat(0, size.width)
                     ..setFloat(1, size.height)
-                    ..setFloat(2, controller.value)
+                    ..setFloat(2, controller.value * 0.8) // 0.8 makes the effect fit between 0 and 1
                     ..setImageSampler(0, image);
 
                   final paint = Paint()..shader = shader;
@@ -54,6 +54,15 @@ class SnapShader extends StatelessWidget {
 enum SnapShaderType {
   /// A shader that splits
   split('split_snap_effect_shader.glsl'),
+
+  /// A shader that splits in reverse
+  /// Ideal for revealing something or creating
+  /// a looped animation with the split shader.
+  ///
+  /// Where the split shader will split from left to right,
+  /// the split reversed shader will split from right to left
+  /// or reveal from left to right.
+  splitReversed('split_reversed_snap_effect_shader.glsl'),
 
   /// A shader that creates a smoke type effect
   smoke('smoke_snap_effect_shader.glsl');

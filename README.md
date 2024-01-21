@@ -28,7 +28,8 @@ Add the shader to your `pubspec.yaml` file:
 ```yaml
 flutter:
   shaders:
-    - packages/flutter_shader_snap/shaders/split_snap_effect_shader.glsl # add if you use SnapShaderType.split
+    - packages/flutter_shader_snap/shaders/split_snap_effect_shader.glsl # add if you use SnapShaderType.split (default)
+    - packages/flutter_shader_snap/shaders/split_reversed_snap_effect_shader.glsl # add if you use SnapShaderType.splitReversed
     - packages/flutter_shader_snap/shaders/smoke_snap_effect_shader.glsl # add if you use SnapShaderType.smoke
 ```
 
@@ -45,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return SnapShader(
         controller: _controller,
-        snapShaderType: SnapShaderType.split, // (optional) SnapShaderType.split or SnapShaderType.smoke
         child: Any Widget...
     );
   }
@@ -62,4 +62,4 @@ builder: (context, child) => controller.value == 0
     : AnimatedSampler
 ```
 
-It works best with "transparent" widgets (for example Text), but you can use it with any widget. May look weird on "blocky" widgets like a rectangular container.
+It works best with "transparent" widgets (for example Text), but you can use it with any widget.

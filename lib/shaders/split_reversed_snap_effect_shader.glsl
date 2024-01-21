@@ -26,7 +26,7 @@ float hash3(float x,float y){
 }
 
 vec4 particals_effect_color(vec2 uv,float deltaTime,float opacity_from_border){
-    vec4 texColor=texture(imageTexture,uv);
+    vec4 texColor=texture(imageTexture,vec2(1-uv.x,uv.y));
     float original_alpha=texColor.a;
     float x=uv.x;
     float y=uv.y;
@@ -41,7 +41,7 @@ void main()
     vec4 texColor=texture(imageTexture,uv);
     float original_alpha=texColor.a;
     float deltaTime=iTime*3.-.55;
-    float x=uv.x;
+    float x=1-uv.x;
     float y=uv.y;
     float border=x+x-deltaTime+hash(x,y)*border_size;
     float opacity_from_border=step(border_position,border);
